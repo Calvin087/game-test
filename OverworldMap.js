@@ -45,7 +45,7 @@ class OverworldMap {
   }
 
   addWall(x, y) {
-    this.walls[`${x}, ${y}`] = true;
+    this.walls[`${x},${y}`] = true;
   }
   removeWall(x, y) {
     delete this.walls[`${x},${y}`];
