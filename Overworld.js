@@ -33,11 +33,18 @@ class Overworld {
       this.map.drawLowerImage(this.ctx, cameraPerson); // calling the instance written in init
 
       // Draw Chars
-      Object.values(this.map.gameObjects).forEach((object) => {
-        object.sprite.draw(this.ctx, cameraPerson);
-        // we're passing camera person, so everything can move around it.
-        // We're not moving the main character. The world moves.
-      });
+      Object.values(this.map.gameObjects)
+        .sort((a, b) => {
+          // if the y position of the hero is lower on the map than npcs,
+          // draw the npc first and hero last.
+          // draws the layers correctly.
+          return a.y - b.y;
+        })
+        .forEach((object) => {
+          object.sprite.draw(this.ctx, cameraPerson);
+          // we're passing camera person, so everything can move around it.
+          // We're not moving the main character. The world moves.
+        });
 
       // Draw Upper Image
       this.map.drawUpperImage(this.ctx, cameraPerson); // calling the instance written in init
@@ -64,5 +71,16 @@ class Overworld {
     this.directionInput = new DirectionInput();
     this.directionInput.init();
     this.startGameLoop();
+
+    // we're using a for loop to iterate over these movements
+    // and play them on the screen using overworldMaps
+    this.map.startCutscene([
+      { who: "hero", type: "walk", direction: "down" },
+      { who: "hero", type: "walk", direction: "down" },
+      { who: "hero", type: "walk", direction: "right" },
+      { who: "hero", type: "stand", direction: "down" },
+      { who: "npcA", type: "walk", direction: "left" },
+      { who: "npcA", type: "stand", direction: "up" },
+    ]);
   }
 }

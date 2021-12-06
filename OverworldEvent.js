@@ -4,9 +4,33 @@ class OverworldEvent {
     this.event = event;
   }
 
-  // stand(resolve) {
-  //   // resolve is going to inform the brain that the event is done.
-  // }
+  stand(resolve) {
+    const who = this.map.gameObjects[this.event.who];
+    // event who is the id (hero, npcA / B)
+    // then we find the gameObject in the map's gameObjects
+    who.startBehavior(
+      {
+        map: this.map,
+      },
+      {
+        type: "stand",
+        direction: this.event.direction,
+        time: this.event.time,
+      }
+    ); // on person class
+
+    // Complete handler resolves the event when person is done walking.
+    const completeHandler = (e) => {
+      if (e.detail.whoId === this.event.who) {
+        document.removeEventListener("PersonStandComplete", completeHandler);
+        resolve();
+      }
+    };
+
+    document.addEventListener("PersonStandComplete", completeHandler);
+    // These events are scoped to a person with their id, so when this class
+    // hears the event being fired off, it'll take action.
+  }
 
   walk(resolve) {
     const who = this.map.gameObjects[this.event.who];
@@ -19,6 +43,7 @@ class OverworldEvent {
       {
         type: "walk",
         direction: this.event.direction, // this comes from gameObjects behavior loop key
+        retry: true,
       }
     ); // on person class
 

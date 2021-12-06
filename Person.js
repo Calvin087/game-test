@@ -23,7 +23,11 @@ class Person extends GameObject {
       this.updatePosition();
     } else {
       // keyboard ready and has arrow passed
-      if (this.isPlayerControlled && state.arrow) {
+      if (
+        !state.map.isCutscenePlaying && // turns off arrows during cutscene
+        this.isPlayerControlled && // is hero?
+        state.arrow // arrows being pressed?
+      ) {
         this.startBehavior(state, {
           type: "walk",
           direction: state.arrow,
@@ -42,6 +46,12 @@ class Person extends GameObject {
     // if the space is taken, we do not move on.
     if (behavior.type === "walk") {
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
+        // but if we've had a collision and we want to retry then do this.
+        behavior.retry &&
+          setTimeout(() => {
+            this.startBehavior(state, behavior);
+          }, 10);
+
         return;
       }
 
@@ -52,6 +62,16 @@ class Person extends GameObject {
       // Ready to move character
       this.movingProgressRemaining = 16;
       this.updateSprite(state);
+    }
+
+    // Setting up the same walking behaviour but for standing instead.
+
+    if (behavior.type === "stand") {
+      setTimeout(() => {
+        utils.emitEvent("PersonStandComplete", {
+          whoId: this.id,
+        });
+      }, behavior.time);
     }
   }
 
