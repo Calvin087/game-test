@@ -1,3 +1,6 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+// We create a custom event here ln:38, and call it in OverworldEvent.js
+
 const utils = {
   withGrid(n) {
     return n * 16;
@@ -28,5 +31,14 @@ const utils = {
     }
 
     return { x, y };
+  },
+
+  emitEvent(name, detail) {
+    // util function to create custom events on the enviroment.
+    const event = new CustomEvent(name, {
+      detail, // passed in config
+    });
+
+    document.dispatchEvent(event);
   },
 };

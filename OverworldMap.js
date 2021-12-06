@@ -8,6 +8,7 @@ class OverworldMap {
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
+    this.isCutscenePlaying = false;
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -35,7 +36,10 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach((object) => {
+    Object.keys(this.gameObjects).forEach((key) => {
+      let object = this.gameObjects[key]; // ie: hero, npc1, npc2 etc
+      object.id = key; // the id becomes the name hero, npc1, npc2
+
       // the whole map at the bottom of the page is being passed
       // in as config, so we're now passing the whole map to mount.
       // mount, calls map.addWall which is here. So we're calling mount,
@@ -71,10 +75,30 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(6),
       }),
-      npc1: new Person({
+      npcA: new Person({
         x: utils.withGrid(7),
         y: utils.withGrid(9),
         src: "/images/characters/people/npc1.png",
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "walk", direction: "left", time: 800 },
+          { type: "walk", direction: "up", time: 500 },
+          { type: "walk", direction: "right", time: 1200 },
+          { type: "walk", direction: "down", time: 300 },
+        ],
+      }),
+      npcB: new Person({
+        x: utils.withGrid(3),
+        y: utils.withGrid(7),
+        src: "/images/characters/people/npc2.png",
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "up", time: 800 },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "down" },
+        ],
       }),
     },
     walls: {

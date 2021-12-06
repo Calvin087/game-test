@@ -51,6 +51,7 @@ class Person extends GameObject {
 
       // Ready to move character
       this.movingProgressRemaining = 16;
+      this.updateSprite(state);
     }
   }
 
@@ -59,6 +60,16 @@ class Person extends GameObject {
     // this.direction belongs to the parent class "default is down"
     this[property] += change; // incrementing the y - this property === GameObject.y
     this.movingProgressRemaining -= 1;
+
+    if (this.movingProgressRemaining === 0) {
+      // character has finished moving.
+      // We want to broadcast to the game that it's finished - Custom Events!!!
+
+      // Tell EVERYONE that we've finished walking
+      utils.emitEvent("PersonWalkingComplete", {
+        whoId: this.id,
+      });
+    }
   }
 
   updateSprite() {
