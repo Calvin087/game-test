@@ -22,17 +22,16 @@ class Person extends GameObject {
     if (this.movingProgressRemaining > 0) {
       this.updatePosition();
     } else {
+      // keyboard ready and has arrow passed
+      if (this.isPlayerControlled && state.arrow) {
+        this.startBehaviour(state, {
+          type: "walk",
+          direction: state.arrow,
+        });
+      }
+      // get directions from direction input and pass it to person updater.
+      this.updateSprite(state);
     }
-
-    // keyboard ready and has arrow passed
-    if (this.isPlayerControlled && state.arrow) {
-      this.startBehaviour(state, {
-        type: "walk",
-        direction: state.arrow,
-      });
-    }
-    // get directions from direction input and pass it to person updater.
-    this.updateSprite(state);
   }
 
   // this will allow us to move a character that IS NOT the main character
