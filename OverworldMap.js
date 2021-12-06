@@ -94,7 +94,6 @@ window.OverworldMaps = {
         behaviorLoop: [
           // this creates a dummy animation for the NPC to follow
           { type: "walk", direction: "left" },
-          { type: "walk", direction: "up", time: 800 },
           { type: "walk", direction: "up" },
           { type: "walk", direction: "right" },
           { type: "walk", direction: "down" },

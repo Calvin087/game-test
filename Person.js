@@ -24,7 +24,7 @@ class Person extends GameObject {
     } else {
       // keyboard ready and has arrow passed
       if (this.isPlayerControlled && state.arrow) {
-        this.startBehaviour(state, {
+        this.startBehavior(state, {
           type: "walk",
           direction: state.arrow,
         });
@@ -35,12 +35,12 @@ class Person extends GameObject {
   }
 
   // this will allow us to move a character that IS NOT the main character
-  startBehaviour(state, behaviour) {
+  startBehavior(state, behavior) {
     // set character direction
-    this.direction = behaviour.direction;
+    this.direction = behavior.direction;
 
     // if the space is taken, we do not move on.
-    if (behaviour.type === "walk") {
+    if (behavior.type === "walk") {
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
         return;
       }

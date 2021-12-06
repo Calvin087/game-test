@@ -4,16 +4,18 @@ class OverworldEvent {
     this.event = event;
   }
 
-  stand(resolve) {
-    // resolve is going to inform the brain that the event is done.
-  }
+  // stand(resolve) {
+  //   // resolve is going to inform the brain that the event is done.
+  // }
 
   walk(resolve) {
     const who = this.map.gameObjects[this.event.who];
     // event who is the id (hero, npcA / B)
     // then we find the gameObject in the map's gameObjects
     who.startBehavior(
-      { map: this.map },
+      {
+        map: this.map,
+      },
       {
         type: "walk",
         direction: this.event.direction, // this comes from gameObjects behavior loop key
