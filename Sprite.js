@@ -58,7 +58,7 @@ class Sprite {
         [0, 3],
       ],
     };
-    this.currentAnimation = config.currentAnimation || "walkDown";
+    this.currentAnimation = config.currentAnimation || "idle-right";
     this.currentAnimationFrame = 0;
 
     // Establishing cadence of animation between sprite sheet frams
@@ -104,9 +104,17 @@ class Sprite {
     }
   }
 
-  draw(ctx) {
-    const x = this.gameObject.x - 8; // nudge built in for correct map position
-    const y = this.gameObject.y - 18; // nudge built in
+  draw(ctx, cameraPerson) {
+    const x = this.gameObject.x - 8 + utils.withGrid(10.5) - cameraPerson.x;
+    // nudge built in for correct map position
+    // This moves every gameObject/Sprite on the screen based on the coordinates of the main character.
+    // The character doesn't move, everything else around it does in relation to the character.
+    // This gives the illusion that we're moving. DAMN!!!
+    // Tha map needs to be updated as well.
+    // 10.5 is half the width minus one cell, so if it's 22 cells wide - 1
+    // Then divided by 2, we get 10.5 (the middle)
+    // Same with the top
+    const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y; // nudge built in
 
     // onload takes a while, so we need to wait for it
     // to load before trying to draw the sprites to the screen

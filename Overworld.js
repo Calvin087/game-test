@@ -15,20 +15,32 @@ class Overworld {
       // Clearing the canvas
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      // Draw Lower Layer
-      this.map.drawLowerImage(this.ctx); // calling the instance written in init
+      // establishing a camera position / person
+      const cameraPerson = this.map.gameObjects.hero; // inside OverworldMaps
 
-      // Draw Chars
+      // This is serparate from the one below because we need to
+      // update all positions before drawing them to the screen
+      // This stops things bouncing around.
       Object.values(this.map.gameObjects).forEach((object) => {
         object.update({
           // Person.update
           arrow: this.directionInput.direction,
+          map: this.map, // allowing us to check methods on the map being drawn
         });
-        object.sprite.draw(this.ctx);
+      });
+
+      // Draw Lower Layer
+      this.map.drawLowerImage(this.ctx, cameraPerson); // calling the instance written in init
+
+      // Draw Chars
+      Object.values(this.map.gameObjects).forEach((object) => {
+        object.sprite.draw(this.ctx, cameraPerson);
+        // we're passing camera person, so everything can move around it.
+        // We're not moving the main character. The world moves.
       });
 
       // Draw Upper Image
-      this.map.drawUpperImage(this.ctx); // calling the instance written in init
+      this.map.drawUpperImage(this.ctx, cameraPerson); // calling the instance written in init
 
       requestAnimationFrame(() => {
         step(); // placing this here stops an infinite loop, instead calls each frame
@@ -48,6 +60,7 @@ class Overworld {
     // Overworld map uses the DEMO ROOM as the config and
     // it's gameObjects become the ones saved in the window object,
     // that have been created and saved at the bottom of overworldmap
+    this.map.mountObjects();
     this.directionInput = new DirectionInput();
     this.directionInput.init();
     this.startGameLoop();

@@ -3,6 +3,7 @@ class GameObject {
     // passing an object to the config allows us to not
     // worry about the order of values etc.
     // similar to props.
+    this.isMounted = false;
     this.x = config.x || 0;
     this.y = config.y || 0;
     this.direction = config.direction || "down";
@@ -15,6 +16,10 @@ class GameObject {
       // along with it's x and y postions above.
       src: config.src || "/images/characters/people/hero.png", // default hero placeholder
     });
+  }
+  mount(map) {
+    this.isMounted = true;
+    map.addWall(this.x, this.y);
   }
 
   update() {}

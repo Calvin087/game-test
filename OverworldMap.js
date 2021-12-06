@@ -1,7 +1,7 @@
 class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects;
-
+    this.walls = config.walls || {};
     // creating layers of images, floor as lower treetops as upper
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
@@ -10,14 +10,54 @@ class OverworldMap {
     this.upperImage.src = config.upperSrc;
   }
 
-  drawLowerImage(ctx) {
+  drawLowerImage(ctx, cameraPerson) {
     //   take in context to draw to
-    ctx.drawImage(this.lowerImage, 0, 0);
+    ctx.drawImage(
+      this.lowerImage,
+      utils.withGrid(10.5) - cameraPerson.x,
+      utils.withGrid(6) - cameraPerson.y
+    );
   }
 
-  drawUpperImage(ctx) {
+  drawUpperImage(ctx, cameraPerson) {
     //   take in context to draw to
-    ctx.drawImage(this.upperImage, 0, 0);
+    ctx.drawImage(
+      this.upperImage,
+      utils.withGrid(10.5) - cameraPerson.x,
+      utils.withGrid(6) - cameraPerson.y
+    );
+  }
+
+  isSpaceTaken(currentX, currentY, direction) {
+    const { x, y } = utils.nextPosition(currentX, currentY, direction);
+
+    return this.walls[`${x},${y}`] || false; // checking if the walls coords are true
+  }
+
+  mountObjects() {
+    Object.values(this.gameObjects).forEach((object) => {
+      // the whole map at the bottom of the page is being passed
+      // in as config, so we're now passing the whole map to mount.
+      // mount, calls map.addWall which is here. So we're calling mount,
+      // then coming back here to call addWall!!!!
+      object.mount(this);
+    });
+  }
+
+  addWall(x, y) {
+    this.walls[`${x}, ${y}`] = true;
+  }
+  removeWall(x, y) {
+    delete this.walls[`${x},${y}`];
+  }
+
+  moveWall(wasX, wasY, direction) {
+    // takes in the old position of a wall, calculates the next position
+    // then deletes the old one and makes a new one for each movement of
+    // the character
+    this.removeWall(wasX, wasY);
+    const { x, y } = utils.nextPosition(wasX, wasY, direction);
+    this.addWall(x, y);
   }
 }
 
@@ -27,15 +67,21 @@ window.OverworldMaps = {
     upperSrc: "/images/maps/DemoUpper.png",
     gameObjects: {
       hero: new Person({
+        isPlayerControlled: true,
         x: utils.withGrid(5),
         y: utils.withGrid(6),
-        isPlayerControlled: true,
       }),
-      // npc1: new Person({
-      //   x: utils.withGrid(7),
-      //   y: utils.withGrid(9),
-      //   src: "/images/characters/people/npc1.png",
-      // }),
+      npc1: new Person({
+        x: utils.withGrid(7),
+        y: utils.withGrid(9),
+        src: "/images/characters/people/npc1.png",
+      }),
+    },
+    walls: {
+      [utils.asGridCoord(7, 6)]: true, // DYNAMIC key naming. Return value becomes key name
+      [utils.asGridCoord(8, 6)]: true,
+      [utils.asGridCoord(7, 7)]: true,
+      [utils.asGridCoord(8, 7)]: true,
     },
   },
   // Kitchen: {
