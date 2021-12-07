@@ -61,7 +61,10 @@ class Overworld {
 
   bindActionInput() {
     new KeyPressListener("Enter", () => {
-      // is there
+      // is there a cutscene at this point?
+      // When we press enter, this fires on the OverWorldMap and checks for
+      // Anything in the next position.
+      this.map.checkForActionCutscene();
     });
   }
 
@@ -82,16 +85,13 @@ class Overworld {
     // we're using a for loop to iterate over these movements
     // and play them on the screen using overworldMaps
 
-    // this.map.startCutscene([
-    // { who: "hero", type: "walk", direction: "down" },
-    // { who: "hero", type: "walk", direction: "down" },
-    // { who: "npcA", type: "walk", direction: "up" },
-    // { who: "npcA", type: "walk", direction: "left" },
-    // { who: "hero", type: "stand", direction: "right" },
-    // // { who: "hero", type: "stand", direction: "down" },
-    // // { who: "npcA", type: "walk", direction: "left" },
-    // // { who: "npcA", type: "stand", direction: "up" },
-    // { type: "textMessage", text: `Let's get started!` },
-    // ]);
+    this.map.startCutscene([
+      // { who: "hero", type: "walk", direction: "down" },
+      // { who: "hero", type: "walk", direction: "down" },
+      // { who: "npcA", type: "walk", direction: "up" },
+      // { who: "npcA", type: "walk", direction: "left" },
+      // { who: "hero", type: "stand", direction: "right" },
+      // { type: "textMessage", text: `Let's get started!` },
+    ]);
   }
 }

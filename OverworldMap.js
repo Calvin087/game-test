@@ -67,6 +67,24 @@ class OverworldMap {
     });
   }
 
+  checkForActionCutscene() {
+    // Where is the hero
+    const hero = this.gameObjects["hero"];
+
+    // what is this hero's next positiong?
+    const nextCoords = utils.nextPosition(hero.x, hero.y, hero.direction);
+
+    const match = Object.values(this.gameObjects).find((object) => {
+      return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`;
+    });
+
+    if (!this.isCutscenePlaying && match && match.talking.length) {
+      this.startCutscene(match.talking[0].events);
+    }
+
+    console.log(match);
+  }
+
   addWall(x, y) {
     this.walls[`${x},${y}`] = true;
   }
@@ -105,6 +123,14 @@ window.OverworldMaps = {
           { type: "stand", direction: "right", time: 1200 },
           { type: "stand", direction: "up", time: 300 },
         ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "Hey, hows it goin" },
+              { type: "textMessage", text: "Something Else here" },
+            ],
+          },
+        ],
       }),
       npcB: new Person({
         x: utils.withGrid(3),
@@ -112,10 +138,11 @@ window.OverworldMaps = {
         src: "/images/characters/people/npc2.png",
         behaviorLoop: [
           // this creates a dummy animation for the NPC to follow
-          { type: "walk", direction: "left" },
-          { type: "walk", direction: "up" },
-          { type: "walk", direction: "right" },
-          { type: "walk", direction: "down" },
+          // { type: "walk", direction: "left" },
+          // { type: "stand", direction: "up" },
+          // { type: "walk", direction: "up" },
+          // { type: "walk", direction: "right" },
+          // { type: "walk", direction: "down" },
         ],
       }),
     },
