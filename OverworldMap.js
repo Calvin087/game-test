@@ -116,7 +116,7 @@ class OverworldMap {
 
 window.OverworldMaps = {
   DemoRoom: {
-    lowerSrc: "/images/maps/DemoLower.png",
+    lowerSrc: "/images/maps/scp1.png",
     upperSrc: "/images/maps/DemoUpper.png",
     gameObjects: {
       hero: new Person({
