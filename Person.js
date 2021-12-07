@@ -7,6 +7,9 @@ class Person extends GameObject {
     this.movingProgressRemaining = 0;
     // This locks the sprite to the map's grid.
 
+    // Stops timeouts building up while standing still
+    this.isStanding = false;
+
     this.isPlayerControlled = config.isPlayerControlled || false;
 
     this.directionUpdate = {
@@ -67,10 +70,12 @@ class Person extends GameObject {
     // Setting up the same walking behaviour but for standing instead.
 
     if (behavior.type === "stand") {
+      this.isStanding = true;
       setTimeout(() => {
         utils.emitEvent("PersonStandComplete", {
           whoId: this.id,
         });
+        this.isStanding = false;
       }, behavior.time);
     }
   }

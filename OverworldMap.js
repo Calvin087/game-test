@@ -60,6 +60,11 @@ class OverworldMap {
 
     // when it's finished, switch to false
     this.isCutscenePlaying = false;
+
+    // Reset NPC to go back totheir old behavour
+    Object.values(this.gameObjects).forEach((object) => {
+      object.doBehaviorEvent(this);
+    });
   }
 
   addWall(x, y) {

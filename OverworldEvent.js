@@ -60,6 +60,15 @@ class OverworldEvent {
     // hears the event being fired off, it'll take action.
   }
 
+  textMessage(resolve) {
+    const message = new TextMessage({
+      text: this.event.text,
+      onComplete: () => resolve(), // what happens when we exit message, resolve
+    });
+
+    message.init(document.querySelector(".game-container"));
+  }
+
   init() {
     return new Promise((resolve) => {
       this[this.event.type](resolve); // we're looking for Stand or Walk or other methods

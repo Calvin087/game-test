@@ -59,6 +59,12 @@ class Overworld {
     step();
   }
 
+  bindActionInput() {
+    new KeyPressListener("Enter", () => {
+      // is there
+    });
+  }
+
   init() {
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
     // this is the map that the game boots up with.
@@ -67,6 +73,7 @@ class Overworld {
     // Overworld map uses the DEMO ROOM as the config and
     // it's gameObjects become the ones saved in the window object,
     // that have been created and saved at the bottom of overworldmap
+    this.bindActionInput();
     this.map.mountObjects();
     this.directionInput = new DirectionInput();
     this.directionInput.init();
@@ -74,13 +81,17 @@ class Overworld {
 
     // we're using a for loop to iterate over these movements
     // and play them on the screen using overworldMaps
-    this.map.startCutscene([
-      { who: "hero", type: "walk", direction: "down" },
-      { who: "hero", type: "walk", direction: "down" },
-      { who: "hero", type: "walk", direction: "right" },
-      { who: "hero", type: "stand", direction: "down" },
-      { who: "npcA", type: "walk", direction: "left" },
-      { who: "npcA", type: "stand", direction: "up" },
-    ]);
+
+    // this.map.startCutscene([
+    // { who: "hero", type: "walk", direction: "down" },
+    // { who: "hero", type: "walk", direction: "down" },
+    // { who: "npcA", type: "walk", direction: "up" },
+    // { who: "npcA", type: "walk", direction: "left" },
+    // { who: "hero", type: "stand", direction: "right" },
+    // // { who: "hero", type: "stand", direction: "down" },
+    // // { who: "npcA", type: "walk", direction: "left" },
+    // // { who: "npcA", type: "stand", direction: "up" },
+    // { type: "textMessage", text: `Let's get started!` },
+    // ]);
   }
 }
