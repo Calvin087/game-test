@@ -90,7 +90,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.DemoRoom);
+    this.startMap(window.OverworldMaps.Kitchen);
 
     this.bindActionInput();
     this.bindHeroPositionCheck();
@@ -103,13 +103,8 @@ class Overworld {
     // we're using a for loop to iterate over these movements
     // and play them on the screen using overworldMaps
 
-    // this.map.startCutscene([
-    // { who: "hero", type: "walk", direction: "down" },
-    // { who: "hero", type: "walk", direction: "down" },
-    // { who: "npcA", type: "walk", direction: "up" },
-    // { who: "npcA", type: "walk", direction: "left" },
-    // { who: "hero", type: "stand", direction: "right" },
-    // { type: "textMessage", text: `Let's get started!` },
-    // ]);
+    this.map.startCutscene([
+      { type: "textMessage", text: `Let's get started!` },
+    ]);
   }
 }
