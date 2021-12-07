@@ -77,6 +77,14 @@ class OverworldEvent {
     message.init(document.querySelector(".game-container"));
   }
 
+  changeMap(resolve) {
+    // index into the overworld maps
+    // the key being passed will say kitchen.
+    // so find the kitchen and start that map.
+    this.map.overworld.startMap(window.OverworldMaps[this.event.map]);
+    resolve();
+  }
+
   init() {
     return new Promise((resolve) => {
       this[this.event.type](resolve); // we're looking for Stand or Walk or other methods

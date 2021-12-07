@@ -10,7 +10,7 @@ class OverworldMap {
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
-    this.isCutscenePlaying = true;
+    this.isCutscenePlaying = false;
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -199,8 +199,12 @@ window.OverworldMaps = {
     lowerSrc: "/images/maps/KitchenLower.png",
     upperSrc: "/images/maps/Kitchenupper.png",
     gameObjects: {
-      hero: new Person({ isPlayerControlled: true, x: 3, y: 5 }),
-      npc1: new Person({
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
+        y: utils.withGrid(10),
+      }),
+      npcA: new Person({
         x: utils.withGrid(10),
         y: utils.withGrid(8),
         src: "/images/characters/people/npc1.png",
