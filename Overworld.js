@@ -68,18 +68,36 @@ class Overworld {
     });
   }
 
-  init() {
-    this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+  bindHeroPositionCheck() {
+    document.addEventListener("PersonWalkingComplete", (e) => {
+      // this an event on the person class
+      if (e.detail.whoId === "hero") {
+        this.map.checkForFootstepCutscene();
+      }
+    });
+  }
+
+  startMap(mapConfig) {
     // this is the map that the game boots up with.
     // we're SAVING a bunch of stuff to the window object
     // in OverworldMap. We then pass ref into Overworld Map.
     // Overworld map uses the DEMO ROOM as the config and
     // it's gameObjects become the ones saved in the window object,
     // that have been created and saved at the bottom of overworldmap
-    this.bindActionInput();
+    this.map = new OverworldMap(mapConfig);
+    this.map.overworld = this;
     this.map.mountObjects();
+  }
+
+  init() {
+    this.startMap(window.OverworldMaps.DemoRoom);
+
+    this.bindActionInput();
+    this.bindHeroPositionCheck();
+
     this.directionInput = new DirectionInput();
     this.directionInput.init();
+
     this.startGameLoop();
 
     // we're using a for loop to iterate over these movements

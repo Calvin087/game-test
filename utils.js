@@ -33,6 +33,22 @@ const utils = {
     return { x, y };
   },
 
+  oppositeDirection(direction) {
+    switch (direction) {
+      case "left":
+        return "right";
+
+      case "right":
+        return "left";
+
+      case "up":
+        return "down";
+
+      default:
+        return "up";
+    }
+  },
+
   emitEvent(name, detail) {
     // util function to create custom events on the enviroment.
     const event = new CustomEvent(name, {

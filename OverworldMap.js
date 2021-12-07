@@ -1,6 +1,8 @@
 class OverworldMap {
   constructor(config) {
+    this.overworld = null;
     this.gameObjects = config.gameObjects;
+    this.cutsceneSpaces = config.cutsceneSpaces || {};
     this.walls = config.walls || {};
     // creating layers of images, floor as lower treetops as upper
     this.lowerImage = new Image();
@@ -85,6 +87,16 @@ class OverworldMap {
     console.log(match);
   }
 
+  checkForFootstepCutscene() {
+    const hero = this.gameObjects["hero"];
+    // index into the map below at cutscenes key, and see if there's anything here.
+    const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
+    console.log({ match });
+    if (!this.isCutscenePlaying && match) {
+      this.startCutscene(match[0].events);
+    }
+  }
+
   addWall(x, y) {
     this.walls[`${x},${y}`] = true;
   }
@@ -126,24 +138,29 @@ window.OverworldMaps = {
         talking: [
           {
             events: [
-              { type: "textMessage", text: "Hey, hows it goin" },
+              {
+                type: "textMessage",
+                text: "Hey, hows it goin",
+                faceHero: "npcA",
+              },
               { type: "textMessage", text: "Something Else here" },
+              { who: "hero", type: "walk", direction: "up" },
             ],
           },
         ],
       }),
       npcB: new Person({
-        x: utils.withGrid(3),
-        y: utils.withGrid(7),
+        x: utils.withGrid(8),
+        y: utils.withGrid(5),
         src: "/images/characters/people/npc2.png",
-        behaviorLoop: [
-          // this creates a dummy animation for the NPC to follow
-          // { type: "walk", direction: "left" },
-          // { type: "stand", direction: "up" },
-          // { type: "walk", direction: "up" },
-          // { type: "walk", direction: "right" },
-          // { type: "walk", direction: "down" },
-        ],
+        // behaviorLoop: [
+        //   // this creates a dummy animation for the NPC to follow
+        //   { type: "walk", direction: "left" },
+        //   { type: "stand", direction: "up" },
+        //   { type: "walk", direction: "up" },
+        //   { type: "walk", direction: "right" },
+        //   { type: "walk", direction: "down" },
+        // ],
       }),
     },
     walls: {
@@ -152,22 +169,55 @@ window.OverworldMaps = {
       [utils.asGridCoord(7, 7)]: true,
       [utils.asGridCoord(8, 7)]: true,
     },
+    cutsceneSpaces: {
+      // checkForFootstepCutscene() is looking for this
+      [utils.asGridCoord(7, 4)]: [
+        // we choose a grid position on the map to create a scene
+        {
+          events: [
+            { who: "npcB", type: "walk", direction: "left" },
+            { who: "npcB", type: "stand", direction: "up", time: 300 },
+            { type: "textMessage", text: "Get Out!" },
+            { who: "npcB", type: "walk", direction: "right" },
+            { who: "npcB", type: "stand", direction: "down" },
+            { who: "hero", type: "walk", direction: "down" },
+            { who: "hero", type: "walk", direction: "left" },
+          ],
+        },
+      ],
+      [utils.asGridCoord(5, 10)]: [
+        {
+          events: [
+            // changing maps
+            { type: "changeMap", map: "Kitchen" },
+          ],
+        },
+      ],
+    },
   },
-  // Kitchen: {
-  //   lowerSrc: "/images/maps/KitchenLower.png",
-  //   upperSrc: "/images/maps/Kitchenupper.png",
-  //   gameObjects: {
-  //     hero: new GameObject({ x: 3, y: 1 }),
-  //     npc1: new GameObject({
-  //       x: 9,
-  //       y: 6,
-  //       src: "/images/characters/people/npc2.png",
-  //     }),
-  //     npc1: new GameObject({
-  //       x: 10,
-  //       y: 8,
-  //       src: "/images/characters/people/npc3.png",
-  //     }),
-  //   },
-  // },
+  Kitchen: {
+    lowerSrc: "/images/maps/KitchenLower.png",
+    upperSrc: "/images/maps/Kitchenupper.png",
+    gameObjects: {
+      hero: new Person({ isPlayerControlled: true, x: 3, y: 5 }),
+      npc1: new Person({
+        x: utils.withGrid(10),
+        y: utils.withGrid(8),
+        src: "/images/characters/people/npc1.png",
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Hey, hows it goin",
+                faceHero: "npcA",
+              },
+              { type: "textMessage", text: "Something Else here" },
+              { who: "hero", type: "walk", direction: "up" },
+            ],
+          },
+        ],
+      }),
+    },
+  },
 };

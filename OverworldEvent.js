@@ -61,6 +61,14 @@ class OverworldEvent {
   }
 
   textMessage(resolve) {
+    if (this.event.faceHero) {
+      const obj = this.map.gameObjects[this.event.faceHero]; // id of the npc passed in
+      obj.direction = utils.oppositeDirection(
+        // change the direction of the NPC to face hero
+        this.map.gameObjects["hero"].direction
+      );
+    }
+
     const message = new TextMessage({
       text: this.event.text,
       onComplete: () => resolve(), // what happens when we exit message, resolve
