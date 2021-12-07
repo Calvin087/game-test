@@ -78,11 +78,19 @@ class OverworldEvent {
   }
 
   changeMap(resolve) {
-    // index into the overworld maps
-    // the key being passed will say kitchen.
-    // so find the kitchen and start that map.
-    this.map.overworld.startMap(window.OverworldMaps[this.event.map]);
-    resolve();
+    const sceneTransition = new SceneTransition();
+
+    // needs container + callback
+    sceneTransition.init(document.querySelector(".game-container"), () => {
+      // index into the overworld maps
+      // the key being passed will say kitchen.
+      // so find the kitchen and start that map.
+
+      this.map.overworld.startMap(window.OverworldMaps[this.event.map]);
+      resolve();
+
+      sceneTransition.fadeOut();
+    });
   }
 
   init() {
