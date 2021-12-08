@@ -4,7 +4,6 @@ class AttemptPuzzle {
     this.element = null;
     this.password = 749489;
     this.userGuess = [];
-    this.userGuessText = this.userGuess.join("") || "";
     this.image = "images/maps/Terminal1.png";
     this.text = `
     Chamber opened..........
@@ -53,7 +52,7 @@ class AttemptPuzzle {
     });
 
     this.actionListener = new KeyPressListener("Enter", () => {
-      this.done();
+      this.checkGuess();
     });
 
     this.actionListener = new KeyPressListener("Backspace", () => {
@@ -61,6 +60,10 @@ class AttemptPuzzle {
         this.userGuess.pop();
       }
     });
+  }
+
+  checkGuess() {
+    //   something here
   }
 
   done() {
