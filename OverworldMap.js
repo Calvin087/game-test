@@ -122,7 +122,7 @@ window.OverworldMaps = {
       hero: new Person({
         isPlayerControlled: true,
         x: utils.withGrid(5),
-        y: utils.withGrid(6),
+        y: utils.withGrid(7),
       }),
       npcA: new Person({
         x: utils.withGrid(7),
@@ -225,8 +225,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(36),
-        y: utils.withGrid(16),
+        x: utils.withGrid(25),
+        y: utils.withGrid(2),
       }),
       npcA: new Person({
         x: utils.withGrid(12),
@@ -406,6 +406,142 @@ window.OverworldMaps = {
     walls: utilsGiantWalls.scp1,
     cutsceneSpaces: {
       // checkForFootstepCutscene() is looking for this
+      [utils.asGridCoord(3, 3)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Clue 1` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(2, 13)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(9, 22)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(10, 22)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(11, 22)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(12, 16)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(19, 19)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(21, 23)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(22, 23)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(32, 24)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(33, 24)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(34, 24)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(31, 27)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(32, 27)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(31, 28)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(32, 29)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(36, 16)]: [
+        {
+          events: [
+            // changing maps
+            { type: "textMessage", text: `Nothing Useful` },
+          ],
+        },
+      ],
     },
   },
 };

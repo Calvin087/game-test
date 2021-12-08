@@ -9,6 +9,8 @@ const utilsGiantWalls = {
     [utils.asGridCoord(1, 3)]: true, // top room left
     [utils.asGridCoord(1, 4)]: true,
     [utils.asGridCoord(2, 2)]: true, // top room top
+    [utils.asGridCoord(8, 1)]: true, // Block main door
+    [utils.asGridCoord(25, 1)]: true, // Block SCP door
     [utils.asGridCoord(3, 2)]: true,
     [utils.asGridCoord(4, 2)]: true,
     [utils.asGridCoord(5, 2)]: true,
