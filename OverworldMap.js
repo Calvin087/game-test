@@ -116,7 +116,7 @@ class OverworldMap {
 
 window.OverworldMaps = {
   DemoRoom: {
-    lowerSrc: "/images/maps/scp1.png",
+    lowerSrc: "/images/maps/DemoLower.png",
     upperSrc: "/images/maps/DemoUpper.png",
     gameObjects: {
       hero: new Person({
@@ -163,12 +163,7 @@ window.OverworldMaps = {
         // ],
       }),
     },
-    walls: {
-      [utils.asGridCoord(7, 6)]: true, // DYNAMIC key naming. Return value becomes key name
-      [utils.asGridCoord(8, 6)]: true,
-      [utils.asGridCoord(7, 7)]: true,
-      [utils.asGridCoord(8, 7)]: true,
-    },
+    walls: utilsGiantWalls.demoRoomWalls,
     cutsceneSpaces: {
       // checkForFootstepCutscene() is looking for this
       [utils.asGridCoord(7, 4)]: [
@@ -222,6 +217,81 @@ window.OverworldMaps = {
           },
         ],
       }),
+    },
+  },
+  SCP1: {
+    lowerSrc: "/images/maps/scp1.png",
+    upperSrc: "/images/maps/DemoUpper.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(14),
+        y: utils.withGrid(14),
+      }),
+      npcA: new Person({
+        x: utils.withGrid(3),
+        y: utils.withGrid(1),
+        src: "/images/characters/people/npc1.png",
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "up", time: 800 },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "up", time: 300 },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Hey, hows it goin",
+                faceHero: "npcA",
+              },
+              { type: "textMessage", text: "Something Else here" },
+              { who: "hero", type: "walk", direction: "up" },
+            ],
+          },
+        ],
+      }),
+      npcB: new Person({
+        x: utils.withGrid(1),
+        y: utils.withGrid(1),
+        src: "/images/characters/people/npc2.png",
+        // behaviorLoop: [
+        //   // this creates a dummy animation for the NPC to follow
+        //   { type: "walk", direction: "left" },
+        //   { type: "stand", direction: "up" },
+        //   { type: "walk", direction: "up" },
+        //   { type: "walk", direction: "right" },
+        //   { type: "walk", direction: "down" },
+        // ],
+      }),
+    },
+    walls: utilsGiantWalls.scp1,
+    cutsceneSpaces: {
+      // checkForFootstepCutscene() is looking for this
+      [utils.asGridCoord(7, 4)]: [
+        // we choose a grid position on the map to create a scene
+        {
+          events: [
+            { who: "npcB", type: "walk", direction: "left" },
+            { who: "npcB", type: "stand", direction: "up", time: 300 },
+            { type: "textMessage", text: "Get Out!" },
+            { who: "npcB", type: "walk", direction: "right" },
+            { who: "npcB", type: "stand", direction: "down" },
+            { who: "hero", type: "walk", direction: "down" },
+            { who: "hero", type: "walk", direction: "left" },
+          ],
+        },
+      ],
+      [utils.asGridCoord(5, 10)]: [
+        {
+          events: [
+            // changing maps
+            { type: "changeMap", map: "Kitchen" },
+          ],
+        },
+      ],
     },
   },
 };

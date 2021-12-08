@@ -90,7 +90,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.DemoRoom);
+    this.startMap(window.OverworldMaps.SCP1);
 
     this.bindActionInput();
     this.bindHeroPositionCheck();
@@ -104,7 +104,8 @@ class Overworld {
     // and play them on the screen using overworldMaps
 
     this.map.startCutscene([
-      { type: "textMessage", text: `Let's get started!` },
+      // add info on SCP details here
+      // { type: "textMessage", text: `Let's get started!` },
     ]);
   }
 }
