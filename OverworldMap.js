@@ -225,30 +225,47 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(4),
+        x: utils.withGrid(36),
+        y: utils.withGrid(16),
       }),
       npcA: new Person({
-        x: utils.withGrid(37),
-        y: utils.withGrid(15),
+        x: utils.withGrid(12),
+        y: utils.withGrid(4),
         src: "/images/characters/people/npc1.png",
         behaviorLoop: [
           // this creates a dummy animation for the NPC to follow
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "up", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
-          { type: "stand", direction: "up", time: 300 },
+          { type: "stand", direction: "left", time: 1000 },
+          { type: "stand", direction: "up", time: 1000 },
+          { type: "stand", direction: "right", time: 1000 },
+          { type: "stand", direction: "up", time: 1000 },
         ],
         talking: [
           {
             events: [
               {
                 type: "textMessage",
-                text: "Hey, hows it goin",
+                text: `Thank God you're here! SCP096's containment
+                lock has opened!`,
                 faceHero: "npcA",
               },
-              { type: "textMessage", text: "Something Else here" },
-              { who: "hero", type: "walk", direction: "up" },
+              {
+                type: "textMessage",
+                text: `It's already taken
+                two agents and there's blood everywhere!`,
+                faceHero: "npcA",
+              },
+              {
+                type: "textMessage",
+                text: `Agent ▓▓▓▓ changed the password to the chamber and
+                none of us know what is, please HELP!`,
+                faceHero: "npcA",
+              },
+              {
+                type: "textMessage",
+                text: `We have about 3 minutes until the
+                system resets and leaves the door open indefinately`,
+                faceHero: "npcA",
+              },
             ],
           },
         ],
@@ -257,41 +274,138 @@ window.OverworldMaps = {
         x: utils.withGrid(18),
         y: utils.withGrid(14),
         src: "/images/characters/people/npc2.png",
-        // behaviorLoop: [
-        //   // this creates a dummy animation for the NPC to follow
-        //   { type: "walk", direction: "left" },
-        //   { type: "stand", direction: "up" },
-        //   { type: "walk", direction: "up" },
-        //   { type: "walk", direction: "right" },
-        //   { type: "walk", direction: "down" },
-        // ],
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "stand", direction: "up", time: 1800 },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "stand", direction: "up", time: 1800 },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "stand", direction: "down", time: 1800 },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: `I saw Agent ▓▓▓▓ leave his notebook in
+                the D-Class break room, maybe his passwords are there.`,
+                faceHero: "npcB",
+              },
+              {
+                type: "textMessage",
+                text: `It's a dumb place to leave it, but he wasn't the
+                brightest of personnel`,
+                faceHero: "npcB",
+              },
+              {
+                type: "textMessage",
+                text: `Oh and we have a leak of SCP009 (Red Ice), it's spreading
+                but as long as you DON'T TOUCH IT, you'll be ok!`,
+                faceHero: "npcB",
+              },
+            ],
+          },
+        ],
+      }),
+      npcC: new Person({
+        x: utils.withGrid(28),
+        y: utils.withGrid(30),
+        src: "/images/characters/people/npc2.png",
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "stand", direction: "up" },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: `Unless you're trying to go home in a body bag,
+                don't touch the Red Ice`,
+                faceHero: "npcC",
+              },
+              {
+                type: "textMessage",
+                text: `I'm looking for Agent ▓▓▓▓'s password, he had a folder on the PC
+                but I can't get it to turn on.`,
+                faceHero: "npcC",
+              },
+              {
+                type: "textMessage",
+                text: `Check the other PC's to see if they're working.`,
+                faceHero: "npcC",
+              },
+            ],
+          },
+        ],
+      }),
+      npcD: new Person({
+        x: utils.withGrid(22),
+        y: utils.withGrid(16),
+        src: "/images/characters/people/npc2.png",
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "stand", direction: "right" },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: `We're going to die here aren't we?`,
+                faceHero: "npcD",
+              },
+              {
+                type: "textMessage",
+                text: `That thing took Tommy and Steve!`,
+                faceHero: "npcD",
+              },
+              {
+                type: "textMessage",
+                text: `There's nothing left of them!`,
+                faceHero: "npcD",
+              },
+            ],
+          },
+        ],
+      }),
+      npcE: new Person({
+        x: utils.withGrid(37),
+        y: utils.withGrid(15),
+        src: "/images/characters/people/npc2.png",
+        behaviorLoop: [
+          // this creates a dummy animation for the NPC to follow
+          { type: "stand", direction: "left" },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: `I'm taking samples of SCP009, I think it may have
+                been the reason the doors around here are jammed.`,
+                faceHero: "npcE",
+              },
+              {
+                type: "textMessage",
+                text: `.................................`,
+                faceHero: "npcE",
+              },
+              {
+                type: "textMessage",
+                text: `Can you hear someone whispering?`,
+                faceHero: "npcE",
+              },
+            ],
+          },
+        ],
       }),
     },
     walls: utilsGiantWalls.scp1,
     cutsceneSpaces: {
       // checkForFootstepCutscene() is looking for this
-      [utils.asGridCoord(7, 4)]: [
-        // we choose a grid position on the map to create a scene
-        {
-          events: [
-            { who: "npcB", type: "walk", direction: "left" },
-            { who: "npcB", type: "stand", direction: "up", time: 300 },
-            { type: "textMessage", text: "Get Out!" },
-            { who: "npcB", type: "walk", direction: "right" },
-            { who: "npcB", type: "stand", direction: "down" },
-            { who: "hero", type: "walk", direction: "down" },
-            { who: "hero", type: "walk", direction: "left" },
-          ],
-        },
-      ],
-      [utils.asGridCoord(5, 10)]: [
-        {
-          events: [
-            // changing maps
-            { type: "changeMap", map: "Kitchen" },
-          ],
-        },
-      ],
     },
   },
 };
