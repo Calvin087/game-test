@@ -221,12 +221,12 @@ window.OverworldMaps = {
   },
   SCP1: {
     lowerSrc: "/images/maps/scp1.png",
-    upperSrc: "/images/maps/DemoUpper.png",
+    upperSrc: "/images/maps/scpTop1.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
         x: utils.withGrid(25),
-        y: utils.withGrid(3),
+        y: utils.withGrid(7),
       }),
       npcA: new Person({
         x: utils.withGrid(3),

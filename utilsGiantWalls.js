@@ -178,17 +178,20 @@ const utilsGiantWalls = {
     [utils.asGridCoord(30, 31)]: true,
     [utils.asGridCoord(31, 31)]: true,
     [utils.asGridCoord(32, 31)]: true,
-    [utils.asGridCoord(21, 28)]: true, // Col Room col top
-    [utils.asGridCoord(22, 28)]: true,
-    [utils.asGridCoord(23, 28)]: true,
-    [utils.asGridCoord(24, 28)]: true,
-    [utils.asGridCoord(25, 28)]: true,
-    [utils.asGridCoord(26, 28)]: true,
-    [utils.asGridCoord(27, 28)]: true,
-    [utils.asGridCoord(28, 28)]: true,
-    [utils.asGridCoord(29, 28)]: true,
-    [utils.asGridCoord(30, 28)]: true,
-    [utils.asGridCoord(21, 29)]: true, // Col Room col bottom
+    // Col Room col top
+    // [utils.asGridCoord(21, 28)]: true,
+    // [utils.asGridCoord(22, 28)]: true,
+    // [utils.asGridCoord(23, 28)]: true,
+    // [utils.asGridCoord(24, 28)]: true,
+    // [utils.asGridCoord(25, 28)]: true,
+    // [utils.asGridCoord(26, 28)]: true,
+    // [utils.asGridCoord(27, 28)]: true,
+    // [utils.asGridCoord(28, 28)]: true,
+    // [utils.asGridCoord(29, 28)]: true,
+    // [utils.asGridCoord(30, 28)]: true,
+
+    // Col Room col bottom
+    [utils.asGridCoord(21, 29)]: true,
     [utils.asGridCoord(22, 29)]: true,
     [utils.asGridCoord(23, 29)]: true,
     [utils.asGridCoord(24, 29)]: true,
@@ -362,5 +365,11 @@ const utilsGiantWalls = {
     [utils.asGridCoord(18, 4)]: true,
     [utils.asGridCoord(32, 3)]: true, // Kill Room Right
     [utils.asGridCoord(32, 4)]: true,
+    [utils.asGridCoord(3, 17)]: true, // Furniture, fix later to class
+    [utils.asGridCoord(3, 18)]: true,
+    [utils.asGridCoord(17, 15)]: true,
+    [utils.asGridCoord(32, 28)]: true,
+    [utils.asGridCoord(32, 30)]: true,
+    [utils.asGridCoord(33, 10)]: true,
   },
 };
