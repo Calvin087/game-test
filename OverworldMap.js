@@ -225,12 +225,12 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(25),
-        y: utils.withGrid(7),
+        x: utils.withGrid(5),
+        y: utils.withGrid(4),
       }),
       npcA: new Person({
-        x: utils.withGrid(3),
-        y: utils.withGrid(1),
+        x: utils.withGrid(37),
+        y: utils.withGrid(15),
         src: "/images/characters/people/npc1.png",
         behaviorLoop: [
           // this creates a dummy animation for the NPC to follow
@@ -254,8 +254,8 @@ window.OverworldMaps = {
         ],
       }),
       npcB: new Person({
-        x: utils.withGrid(1),
-        y: utils.withGrid(1),
+        x: utils.withGrid(18),
+        y: utils.withGrid(14),
         src: "/images/characters/people/npc2.png",
         // behaviorLoop: [
         //   // this creates a dummy animation for the NPC to follow
