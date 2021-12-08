@@ -93,6 +93,14 @@ class OverworldEvent {
     });
   }
 
+  attemptPuzzle(resolve) {
+    const puzzle = new AttemptPuzzle({
+      onComplete: () => resolve(),
+    });
+
+    puzzle.init(document.querySelector(".game-container"));
+  }
+
   init() {
     return new Promise((resolve) => {
       this[this.event.type](resolve); // we're looking for Stand or Walk or other methods

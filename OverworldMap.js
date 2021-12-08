@@ -545,3 +545,15 @@ window.OverworldMaps = {
     },
   },
 };
+
+// I need to create a new event, which calls a class.
+// Prob need to add an event to a tile in the Ov:map
+// when you step on it, something happens.
+// this also needs to work for the red ice. GAME OVER
+// The class needs to put some type of div on the screen or change map
+// Iwant the user to input numbers on the screen
+// if it's correct, they win
+// if it's false, play a video.... GAME OVER
+// I need to reset the game also.
+
+// need to add timer.
