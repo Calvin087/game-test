@@ -5,9 +5,9 @@
 
 .timer {
   font-family: "radioland";
-  font-size: 1.2rem;
+  font-size: 10px;
   color: #cb0000;
   position: absolute;
-  left: 41%;
-  bottom: -15%;
+  right: 46%;
+  bottom: -8%;
 }
