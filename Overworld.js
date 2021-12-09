@@ -105,8 +105,21 @@ class Overworld {
 
     this.map.startCutscene([
       // add info on SCP details here
-      // { type: "textMessage", text: `Let's get started!` },
-      // { type: "attemptPuzzle" },
+      { who: "hero", type: "walk", direction: "down" },
+      { who: "hero", type: "walk", direction: "down" },
+      {
+        type: "textMessage",
+        text: `This doesn't look good, SCP-096's containment has failed`,
+      },
+      {
+        type: "textMessage",
+        text: `If we don't fix this, lots of people are gonna die!`,
+      },
     ]);
+
+    window.onload = () => {
+      document.getElementById("whispers").play();
+      document.getElementById("whispers1").play();
+    };
   }
 }

@@ -6,6 +6,7 @@ class RedIce {
   }
 
   createElement() {
+    document.getElementById("death").play();
     this.element = document.createElement("div");
     this.element.classList.add("TextMessage");
 

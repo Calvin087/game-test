@@ -74,6 +74,8 @@ const utilsGiantWalls = {
     [utils.asGridCoord(9, 9)]: true,
     [utils.asGridCoord(9, 10)]: true,
     [utils.asGridCoord(9, 11)]: true,
+    [utils.asGridCoord(9, 12)]: true,
+    [utils.asGridCoord(9, 13)]: true,
     [utils.asGridCoord(9, 14)]: true,
     [utils.asGridCoord(9, 15)]: true,
     [utils.asGridCoord(9, 16)]: true,
