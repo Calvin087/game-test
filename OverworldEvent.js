@@ -93,9 +93,30 @@ class OverworldEvent {
     });
   }
 
+  attemptPuzzle(resolve) {
+    const puzzle = new AttemptPuzzle({
+      map: this.map,
+      onComplete: () => resolve(),
+    });
+
+    puzzle.init(document.querySelector(".game-container"));
+  }
+
+  redIce(resolve) {
+    const redIceDeath = new RedIce({
+      text: this.event.text,
+      onComplete: () => resolve(),
+    });
+
+    console.log("callinv red ice");
+
+    redIceDeath.init(document.querySelector(".game-container"));
+  }
+
   init() {
     return new Promise((resolve) => {
       this[this.event.type](resolve); // we're looking for Stand or Walk or other methods
+      // we pass the promise resolve to all events above and it completes this action.
     });
   }
 }

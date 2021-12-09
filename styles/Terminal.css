@@ -1,0 +1,79 @@
+.Terminal_p {
+  position: absolute;
+  font-family: "VT323", monospace;
+  color: #37cd73;
+  font-size: 7px;
+  line-height: 1.7em;
+  margin: 0;
+  top: 16%;
+  left: 4%;
+  max-width: 200px;
+  -webkit-font-smoothing: none;
+}
+
+.Terminal_n {
+  position: absolute;
+  font-family: "VT323", monospace;
+  color: #37cd73;
+  font-size: 25px;
+  line-height: 1.7em;
+  margin: 0;
+  top: 61%;
+  left: 36%;
+  max-width: 200px;
+  -webkit-font-smoothing: none;
+}
+
+.Terminal span {
+  opacity: 0;
+}
+
+.Terminal span.revealed {
+  opacity: 1;
+}
+
+.Terminal_button {
+  color: #9a7a72;
+  margin: 0;
+  font-size: 8px;
+  padding: 0;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
+.Terminal {
+  position: absolute;
+  left: 18.5%;
+  top: 10%;
+}
+
+.blinking {
+  display: inline;
+  position: absolute;
+  top: 34.5%;
+  left: 44%;
+  height: 6px;
+  width: 3px;
+  background-color: #4caf50;
+  -webkit-animation: blinking 1s infinite;
+  animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    background-color: transparent;
+  }
+  49% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #4caf50;
+  }
+}

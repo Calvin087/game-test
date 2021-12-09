@@ -1,5 +1,6 @@
 class Sprite {
   constructor(config) {
+    console.log(config.needShadow);
     // Set up the image based on
     // what's been passed in to the config object
     this.image = new Image();
@@ -14,11 +15,13 @@ class Sprite {
 
     // Configuring shadows on elements
     this.shadow = new Image();
-    this.useShadow = true;
-    if (this.useShadow) {
+    this.useShadow = config.needShadow === false ? false : true;
+
+    if (this.useShadow === true) {
       // only use a shadow on an element if it's not coded already
       this.shadow.src = "/images/characters/shadow.png";
     }
+
     this.shadow.onload = () => {
       this.isShadowLoaded = true;
     };
