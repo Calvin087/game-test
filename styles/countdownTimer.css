@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "radioland";
+  src: url("/images/fonts/radioland.regular.ttf");
+}
+
+.timer {
+  font-family: "radioland";
+  font-size: 1.2rem;
+  color: #cb0000;
+  position: absolute;
+  left: 41%;
+  bottom: -15%;
+}

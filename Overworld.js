@@ -8,6 +8,7 @@ class Overworld {
     // Grabbing canvas element from whatever world we pass in.
     this.ctx = this.canvas.getContext("2d");
     this.map = null;
+    this.chronoMeter = new Chronometer();
   }
 
   startGameLoop() {
@@ -116,5 +117,10 @@ class Overworld {
         text: `If we don't fix this, lots of people are gonna die!`,
       },
     ]);
+
+    this.chronoMeter.init(() => {
+      console.log("dead");
+      this.map.startCutscene([{ type: "escaped" }]);
+    });
   }
 }

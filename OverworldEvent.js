@@ -102,6 +102,15 @@ class OverworldEvent {
     puzzle.init(document.querySelector(".game-container"));
   }
 
+  escaped(resolve) {
+    const puzzle = new Escaped({
+      map: this.map,
+      onComplete: () => resolve(),
+    });
+
+    puzzle.init(document.querySelector(".game-container"));
+  }
+
   redIce(resolve) {
     const redIceDeath = new RedIce({
       text: this.event.text,

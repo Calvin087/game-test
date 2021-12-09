@@ -156,7 +156,7 @@ window.OverworldMaps = {
               },
               {
                 type: "textMessage",
-                text: `We have about 3 minutes until the
+                text: `We have about 5 minutes until the
                 system resets and leaves the door open indefinately`,
                 faceHero: "npcA",
               },
@@ -321,11 +321,11 @@ window.OverworldMaps = {
               },
               {
                 type: "textMessage",
-                text: `Day of the week I was born, then number of weeks in a year.....`,
+                text: `The day of the week I was born, then the number of planets.....`,
               },
               {
                 type: "textMessage",
-                text: `Then my favourite day of the week.....`,
+                text: `Then then number of weeks in a year`,
               },
               {
                 type: "textMessage",
@@ -552,3 +552,5 @@ window.OverworldMaps = {
 // or maybe just let people refresh.
 
 // need to add timer.
+// maybe i can use the chrono made the other week....
+// Just display it outside the canvas
