@@ -116,9 +116,5 @@ class Overworld {
         text: `If we don't fix this, lots of people are gonna die!`,
       },
     ]);
-    window.onload = () => {
-      document.getElementById("whispers").play();
-      document.getElementById("whispers1").play();
-    };
   }
 }

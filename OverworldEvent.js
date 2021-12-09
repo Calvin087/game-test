@@ -111,6 +111,13 @@ class OverworldEvent {
     redIceDeath.init(document.querySelector(".game-container"));
   }
 
+  playWhispers(resolve) {
+    console.log("triggering whispers");
+    document.getElementById("whispers").play();
+    document.getElementById("whispers1").play();
+    resolve(); // this stopped the sounds from blocking the entire game
+  }
+
   init() {
     return new Promise((resolve) => {
       this[this.event.type](resolve); // we're looking for Stand or Walk or other methods

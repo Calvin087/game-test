@@ -2,7 +2,7 @@ class AttemptPuzzle {
   constructor({ map, onComplete }) {
     this.onComplete = onComplete;
     this.element = null;
-    this.password = 452724;
+    this.password = 524724;
     this.userGuess = [];
     this.image = "images/maps/Terminal1.png";
     this.text = `. . . ENTER PASSWORD NOW ⚩`;
