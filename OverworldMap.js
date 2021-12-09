@@ -83,15 +83,13 @@ class OverworldMap {
     if (!this.isCutscenePlaying && match && match.talking.length) {
       this.startCutscene(match.talking[0].events);
     }
-
-    console.log(match);
   }
 
   checkForFootstepCutscene() {
     const hero = this.gameObjects["hero"];
     // index into the map below at cutscenes key, and see if there's anything here.
     const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
-    console.log({ match });
+
     if (!this.isCutscenePlaying && match) {
       this.startCutscene(match[0].events);
     }
@@ -225,8 +223,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(8),
-        y: utils.withGrid(2),
+        x: utils.withGrid(25),
+        y: utils.withGrid(3),
       }),
       npcA: new Person({
         x: utils.withGrid(12),

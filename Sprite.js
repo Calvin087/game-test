@@ -1,6 +1,5 @@
 class Sprite {
   constructor(config) {
-    console.log(config.needShadow);
     // Set up the image based on
     // what's been passed in to the config object
     this.image = new Image();

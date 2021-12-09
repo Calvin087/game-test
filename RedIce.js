@@ -29,7 +29,6 @@ class RedIce {
     });
 
     this.actionListener = new KeyPressListener("Enter", () => {
-      console.log("ENTER");
       this.done();
     });
   }

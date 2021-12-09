@@ -108,8 +108,6 @@ class OverworldEvent {
       onComplete: () => resolve(),
     });
 
-    console.log("callinv red ice");
-
     redIceDeath.init(document.querySelector(".game-container"));
   }
 

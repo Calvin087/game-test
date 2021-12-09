@@ -78,6 +78,7 @@ class AttemptPuzzle {
       <source src="video/${choice}.mp4"type="video/mp4">
     </video>
     `;
+    this.onComplete();
   }
 
   init(container) {
