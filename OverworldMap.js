@@ -225,8 +225,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(25),
-        y: utils.withGrid(2),
+        x: utils.withGrid(23),
+        y: utils.withGrid(16),
       }),
       npcA: new Person({
         x: utils.withGrid(12),
@@ -244,7 +244,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: `Thank God you're here! SCP096's containment
+                text: `Thank God you're here! SCP-096's containment
                 lock has opened!`,
                 faceHero: "npcA",
               },
@@ -367,6 +367,17 @@ window.OverworldMaps = {
                 text: `There's nothing left of them!`,
                 faceHero: "npcD",
               },
+              {
+                type: "textMessage",
+                text: `Agent ▓▓▓▓'s birthday?...... It's the 15th of June I think - He keeps telling us he was
+                born on a Thursday.`,
+                faceHero: "npcD",
+              },
+              {
+                type: "textMessage",
+                text: `Why do you care? We have more important things to handle!`,
+                faceHero: "npcD",
+              },
             ],
           },
         ],
@@ -402,6 +413,34 @@ window.OverworldMaps = {
           },
         ],
       }),
+      computer: new GameObject({
+        x: utils.withGrid(26),
+        y: utils.withGrid(29),
+        src: "/images/characters/people/transparent.png",
+        needShadow: false,
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: `Agent ▓▓▓▓: Think, think....maybe something like`,
+              },
+              {
+                type: "textMessage",
+                text: `Days of weeks in a year, then the day of the week i was born`,
+              },
+              {
+                type: "textMessage",
+                text: `Then my favourite day of the week.....`,
+              },
+              {
+                type: "textMessage",
+                text: `and the amount of hours in a day...yes, that will do.`,
+              },
+            ],
+          },
+        ],
+      }),
     },
     walls: utilsGiantWalls.scp1,
     cutsceneSpaces: {
@@ -410,7 +449,22 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Clue 1` },
+            {
+              type: "textMessage",
+              text: `SCP-096, also known as "The Shy Guy" or
+                    "The Crying Man" is a hostile humanoid SCP that
+                    kills anyone that sees his face.`,
+            },
+            {
+              type: "textMessage",
+              text: `There is currently no known way to stop
+                    the shy guy once he in is this killer 'mode'`,
+            },
+            {
+              type: "textMessage",
+              text: `Proceed with extreme caution. SCP-096 is calm
+                    and easy to move as long as NOBODY LOOKS AT HIS FACE!`,
+            },
           ],
         },
       ],
@@ -418,7 +472,45 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            {
+              type: "textMessage",
+              text: `Agent ▓▓▓▓: Changing these passwords every week is killing me`,
+            },
+            {
+              type: "textMessage",
+              text: `I need to find a better way to remember them`,
+            },
+            {
+              type: "textMessage",
+              text: `6 numbers, starting with the day of the week I was born`,
+            },
+            {
+              type: "textMessage",
+              text: `Only the other agents here know which day i was born, it's a good start.`,
+            },
+          ],
+        },
+      ],
+      [utils.asGridCoord(27, 16)]: [
+        {
+          events: [
+            // changing maps
+            {
+              type: "textMessage",
+              text: `Agent ▓▓▓▓: Damn, I love Sunday. The day of rest...My reset day`,
+            },
+            {
+              type: "textMessage",
+              text: `There's nobody at home to bother me, the Sunday paper comes`,
+            },
+            {
+              type: "textMessage",
+              text: `I can organise my stamp collection.`,
+            },
+            {
+              type: "textMessage",
+              text: `I love Sundays.`,
+            },
           ],
         },
       ],
@@ -426,7 +518,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -434,7 +526,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -442,7 +534,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -450,7 +542,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -458,7 +550,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -466,7 +558,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -474,7 +566,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -482,7 +574,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -490,7 +582,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -498,7 +590,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -506,15 +598,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
-          ],
-        },
-      ],
-      [utils.asGridCoord(32, 27)]: [
-        {
-          events: [
-            // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -522,7 +606,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -530,7 +614,7 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
           ],
         },
       ],
@@ -538,7 +622,15 @@ window.OverworldMaps = {
         {
           events: [
             // changing maps
-            { type: "textMessage", text: `Nothing Useful` },
+            { type: "redIce", text: `ahhhhhh sdfoijsdiofjiosdfjids` },
+          ],
+        },
+      ],
+      [utils.asGridCoord(25, 3)]: [
+        {
+          events: [
+            // changing maps
+            { type: "attemptPuzzle" },
           ],
         },
       ],

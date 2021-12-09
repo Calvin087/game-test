@@ -106,7 +106,7 @@ class Overworld {
     this.map.startCutscene([
       // add info on SCP details here
       // { type: "textMessage", text: `Let's get started!` },
-      { type: "attemptPuzzle" },
+      // { type: "attemptPuzzle" },
     ]);
   }
 }
