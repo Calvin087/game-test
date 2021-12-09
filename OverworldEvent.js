@@ -95,6 +95,7 @@ class OverworldEvent {
 
   attemptPuzzle(resolve) {
     const puzzle = new AttemptPuzzle({
+      map: this.map,
       onComplete: () => resolve(),
     });
 
