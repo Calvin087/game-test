@@ -22,7 +22,7 @@ class AttemptPuzzle {
           new password requested from Agent with clearance:
         </p>
         <p class="Terminal_n"></p>
-        <img src="${this.image}" alt=""/>
+        <img src="/${this.image}" alt=""/>
     `;
 
     this.revealingText = new RevealText({
@@ -75,7 +75,7 @@ class AttemptPuzzle {
     this.element.classList.add("Video_box");
     this.element.innerHTML = `
     <video width="358" autoplay="autoplay">
-      <source src="video/${choice}.mp4"type="video/mp4">
+      <source src="/video/${choice}.mp4"type="video/mp4">
     </video>
     `;
     this.onComplete();
