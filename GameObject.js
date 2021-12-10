@@ -15,7 +15,7 @@ class GameObject {
       needShadow: config.needShadow,
       // passing itself as the object to Sprite class
       // along with it's x and y postions above.
-      src: config.src || "/images/characters/people/hero.png", // default hero placeholder
+      src: config.src || "/images/characters/people/hero1.png", // default hero placeholder
     });
 
     this.behaviorLoop = config.behaviorLoop || [];

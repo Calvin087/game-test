@@ -11,6 +11,8 @@
     <link href="styles/Terminal.css" rel="stylesheet" type="text/css" />
     <link href="styles/SceneTransition.css" rel="stylesheet" type="text/css" />
     <link href="styles/Video.css" rel="stylesheet" type="text/css" />
+    <link href="styles/countdownTimer.css" rel="stylesheet" type="text/css" />
+    <link href="styles/myNamefooter.css" rel="stylesheet" type="text/css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
     </style>
@@ -21,6 +23,13 @@
       <canvas class="game-canvas" width="352" height="198">
         <!-- aspect ration passed to canvas -->
       </canvas>
+      <div id="timer" class="timer"></div>
+      <div id="myName" class="myName">
+        made with love by
+        <a href="https://calvintorra.com/blog/scp" target="blank"
+          >CalvinTorra</a
+        >
+      </div>
     </div>
     <audio id="whispers" src="./audio/whispers1.mp3" loop="loop"></audio>
     <audio id="whispers1" src="./audio/whispers.mp3" loop="loop"></audio>
@@ -41,6 +50,8 @@
     <script src="SceneTransition.js"></script>
     <script src="AttemptPuzzle.js"></script>
     <script src="RedIce.js"></script>
+    <script src="Escaped.js"></script>
+    <script src="Chronometer.js"></script>
     <script src="init.js"></script>
     <!-- init starts the script so goes last -->
     <!-- Everything here is blocking -->
