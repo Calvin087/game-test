@@ -21,7 +21,7 @@ class Chronometer {
         callback();
         this.stop();
       }
-    }, 850);
+    }, 820);
   }
 
   getMinutes() {
