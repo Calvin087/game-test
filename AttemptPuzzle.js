@@ -2,7 +2,7 @@ class AttemptPuzzle {
   constructor({ map, onComplete }) {
     this.onComplete = onComplete;
     this.element = null;
-    this.password = 452724;
+    this.password = 485224;
     this.userGuess = [];
     this.image = "images/maps/Terminal1.png";
     this.text = `. . . ENTER PASSWORD NOW ⚩`;
@@ -71,6 +71,11 @@ class AttemptPuzzle {
   playVideo(outcome) {
     const choice = outcome === "win" ? "win" : "lose";
 
+    if (choice === "win") {
+      document.getElementById("whispers").pause();
+      document.getElementById("whispers1").pause();
+    }
+
     this.element.classList.remove("Terminal");
     this.element.classList.add("Video_box");
     this.element.innerHTML = `
@@ -78,6 +83,14 @@ class AttemptPuzzle {
       <source src="video/${choice}.mp4"type="video/mp4">
     </video>
     `;
+    document.querySelector("video").addEventListener(
+      "ended",
+      function () {
+        // do something here when video ends
+        window.location.reload();
+      },
+      false
+    );
     this.onComplete();
   }
 

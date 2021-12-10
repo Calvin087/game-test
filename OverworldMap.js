@@ -113,118 +113,14 @@ class OverworldMap {
 }
 
 window.OverworldMaps = {
-  DemoRoom: {
-    lowerSrc: "/images/maps/DemoLower.png",
-    upperSrc: "/images/maps/DemoUpper.png",
-    gameObjects: {
-      hero: new Person({
-        isPlayerControlled: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(7),
-      }),
-      npcA: new Person({
-        x: utils.withGrid(7),
-        y: utils.withGrid(9),
-        src: "/images/characters/people/npc1.png",
-        behaviorLoop: [
-          // this creates a dummy animation for the NPC to follow
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "up", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
-          { type: "stand", direction: "up", time: 300 },
-        ],
-        talking: [
-          {
-            events: [
-              {
-                type: "textMessage",
-                text: "Hey, hows it goin",
-                faceHero: "npcA",
-              },
-              { type: "textMessage", text: "Something Else here" },
-              { who: "hero", type: "walk", direction: "up" },
-            ],
-          },
-        ],
-      }),
-      npcB: new Person({
-        x: utils.withGrid(8),
-        y: utils.withGrid(5),
-        src: "/images/characters/people/npc2.png",
-        // behaviorLoop: [
-        //   // this creates a dummy animation for the NPC to follow
-        //   { type: "walk", direction: "left" },
-        //   { type: "stand", direction: "up" },
-        //   { type: "walk", direction: "up" },
-        //   { type: "walk", direction: "right" },
-        //   { type: "walk", direction: "down" },
-        // ],
-      }),
-    },
-    walls: utilsGiantWalls.demoRoomWalls,
-    cutsceneSpaces: {
-      // checkForFootstepCutscene() is looking for this
-      [utils.asGridCoord(7, 4)]: [
-        // we choose a grid position on the map to create a scene
-        {
-          events: [
-            { who: "npcB", type: "walk", direction: "left" },
-            { who: "npcB", type: "stand", direction: "up", time: 300 },
-            { type: "textMessage", text: "Get Out!" },
-            { who: "npcB", type: "walk", direction: "right" },
-            { who: "npcB", type: "stand", direction: "down" },
-            { who: "hero", type: "walk", direction: "down" },
-            { who: "hero", type: "walk", direction: "left" },
-          ],
-        },
-      ],
-      [utils.asGridCoord(5, 10)]: [
-        {
-          events: [
-            // changing maps
-            { type: "changeMap", map: "Kitchen" },
-          ],
-        },
-      ],
-    },
-  },
-  Kitchen: {
-    lowerSrc: "/images/maps/KitchenLower.png",
-    upperSrc: "/images/maps/Kitchenupper.png",
-    gameObjects: {
-      hero: new Person({
-        isPlayerControlled: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(5),
-      }),
-      npcA: new Person({
-        x: utils.withGrid(10),
-        y: utils.withGrid(8),
-        src: "/images/characters/people/npc1.png",
-        talking: [
-          {
-            events: [
-              {
-                type: "textMessage",
-                text: "Hey, hows it goin",
-                faceHero: "npcA",
-              },
-              { type: "textMessage", text: "Something Else here" },
-              { who: "hero", type: "walk", direction: "up" },
-            ],
-          },
-        ],
-      }),
-    },
-  },
   SCP1: {
     lowerSrc: "/images/maps/scp1.png",
     upperSrc: "/images/maps/scpTop1.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(25),
-        y: utils.withGrid(3),
+        x: utils.withGrid(8), // 8
+        y: utils.withGrid(2), // 3
       }),
       npcA: new Person({
         x: utils.withGrid(12),
@@ -260,7 +156,7 @@ window.OverworldMaps = {
               },
               {
                 type: "textMessage",
-                text: `We have about 3 minutes until the
+                text: `We have about 5 minutes until the
                 system resets and leaves the door open indefinately`,
                 faceHero: "npcA",
               },
@@ -383,7 +279,7 @@ window.OverworldMaps = {
       npcE: new Person({
         x: utils.withGrid(37),
         y: utils.withGrid(15),
-        src: "/images/characters/people/npc2.png",
+        src: "/images/characters/people/npc3.png",
         behaviorLoop: [
           // this creates a dummy animation for the NPC to follow
           { type: "stand", direction: "left" },
@@ -425,11 +321,11 @@ window.OverworldMaps = {
               },
               {
                 type: "textMessage",
-                text: `Days of weeks in a year, then the day of the week i was born`,
+                text: `The day of the week I was born, then the number of planets.....`,
               },
               {
                 type: "textMessage",
-                text: `Then my favourite day of the week.....`,
+                text: `Then then number of weeks in a year`,
               },
               {
                 type: "textMessage",
@@ -443,6 +339,14 @@ window.OverworldMaps = {
     walls: utilsGiantWalls.scp1,
     cutsceneSpaces: {
       // checkForFootstepCutscene() is looking for this
+      [utils.asGridCoord(8, 5)]: [
+        {
+          events: [
+            // changing maps
+            { type: "playWhispers" },
+          ],
+        },
+      ],
       [utils.asGridCoord(3, 3)]: [
         {
           events: [
@@ -645,5 +549,8 @@ window.OverworldMaps = {
 // if it's correct, they win
 // if it's false, play a video.... GAME OVER
 // I need to reset the game also.
+// or maybe just let people refresh.
 
 // need to add timer.
+// maybe i can use the chrono made the other week....
+// Just display it outside the canvas

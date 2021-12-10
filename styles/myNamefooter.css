@@ -1,0 +1,16 @@
+.myName {
+  position: absolute;
+  font-size: 4px;
+  font-family: sans-serif;
+  color: #767676;
+}
+
+.myName a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.myName a:hover {
+  color: #7e4545;
+}
