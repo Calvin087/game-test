@@ -47,7 +47,6 @@ class RedIce {
   }
 
   init(container) {
-    window.chronometer.stop();
     this.createElement();
     // index has a box called game-container that we pass here.
     container.appendChild(this.element);
