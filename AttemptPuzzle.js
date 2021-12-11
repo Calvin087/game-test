@@ -72,6 +72,7 @@ class AttemptPuzzle {
     const choice = outcome === "win" ? "win" : "lose";
 
     if (choice === "win") {
+      window.chronometer.stop();
       document.getElementById("whispers").pause();
       document.getElementById("whispers1").pause();
     }

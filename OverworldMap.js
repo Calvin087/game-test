@@ -7,7 +7,6 @@ class OverworldMap {
     // creating layers of images, floor as lower treetops as upper
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
-
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
     this.isCutscenePlaying = false;
@@ -119,8 +118,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(8), // 8
-        y: utils.withGrid(2), // 3
+        x: utils.withGrid(8), // 8 beginning of game
+        y: utils.withGrid(3), // 3 beginning of game
       }),
       npcA: new Person({
         x: utils.withGrid(12),

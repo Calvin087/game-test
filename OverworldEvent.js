@@ -114,7 +114,9 @@ class OverworldEvent {
   redIce(resolve) {
     const redIceDeath = new RedIce({
       text: this.event.text,
-      onComplete: () => resolve(),
+      onComplete: () => {
+        resolve();
+      },
     });
 
     redIceDeath.init(document.querySelector(".game-container"));

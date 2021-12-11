@@ -90,9 +90,22 @@ class Overworld {
     this.map.mountObjects();
   }
 
+  stopCountdown() {
+    this.chronometer.stop();
+  }
+
   init() {
     this.startMap(window.OverworldMaps.SCP1);
 
+    // Probably not the best idea to pollute the window more but
+    // I can't pass the chorometer through the map classes
+    // need the time to stop decrementing during win / lose events.
+
+    window.chronometer = this.chronometer;
+    window.chronometer.init(() => {
+      document.getElementById("timer").textContent = `Run:Now`;
+      this.map.startCutscene([{ type: "escaped" }]);
+    });
     this.bindActionInput();
     this.bindHeroPositionCheck();
 
@@ -118,9 +131,9 @@ class Overworld {
       },
     ]);
 
-    this.chronometer.init(() => {
-      document.getElementById("timer").textContent = `Run:Now`;
-      this.map.startCutscene([{ type: "escaped" }]);
-    });
+    // window.chronometer.init(() => {
+    //   document.getElementById("timer").textContent = `Run:Now`;
+    //   this.map.startCutscene([{ type: "escaped" }]);
+    // });
   }
 }
