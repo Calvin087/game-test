@@ -33,8 +33,18 @@ body {
   image-rendering: pixelated;
 }
 
+#icon_row {
+  position: absolute;
+  right: 0%;
+  bottom: -9%;
+}
+
 .icons {
   width: 10px;
   margin-top: 3px;
   margin-right: 2px;
+}
+
+#icon_row a {
+  text-decoration: none;
 }
