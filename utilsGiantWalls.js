@@ -183,6 +183,7 @@ const utilsGiantWalls = {
     [utils.asGridCoord(31, 31)]: true,
     [utils.asGridCoord(32, 31)]: true,
     // Col Room col top
+    // I made this wall smaller so no need for the tiles here.
     // [utils.asGridCoord(21, 28)]: true,
     // [utils.asGridCoord(22, 28)]: true,
     // [utils.asGridCoord(23, 28)]: true,

@@ -544,7 +544,7 @@ window.OverworldMaps = {
 // when you step on it, something happens.
 // this also needs to work for the red ice. GAME OVER
 // The class needs to put some type of div on the screen or change map
-// Iwant the user to input numbers on the screen
+// I want the user to input numbers on the screen
 // if it's correct, they win
 // if it's false, play a video.... GAME OVER
 // I need to reset the game also.
