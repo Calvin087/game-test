@@ -2,6 +2,9 @@
 
 This game was made with Vanilla Javascript, HTML and CSS so there's nothing to install.
 
+- [How the game was made](https://calvintorra.com/blog/scp)
+- [Play the game online](https://zealous-rosalind-1a870e.netlify.app/)
+
 ## SCP-096
 
 |            | SCP Details |             |
