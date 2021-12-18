@@ -2,24 +2,24 @@
 
 This game was made with Vanilla Javascript, HTML and CSS so there's nothing to install.
 
-# SCP-096
+## SCP-096
 
 |            | SCP Details |             |
 | :--------: | :---------: | :---------: |
 | Item No. # | Obj. Class  |    Name     |
 |    096     |   Euclid    | The Shy Guy |
 
-# Playing the game:
+## Playing the game:
 
 **Hosted on Netlify:**
 Play the game online [here](https://zealous-rosalind-1a870e.netlify.app/)
 
-# Controls
+## Controls
 
 WASD + Arrow keys control player movement.  
 `Enter` key triggers interaction with NPCs and objects.
 
-# Game Objective
+## Game Objective
 
 SCP-096's containment door has been opened and it's stuck open. This is bad news for the rest of the SCP foundation employees.
 
@@ -27,7 +27,7 @@ Although calm and easy to move, SCP-096 becomes and unstoppable killing machine 
 
 Your fellow agent is missing and they're the only one that knows the emergency lockdown password for this containment section.
 
-# Clues
+## Clues
 
 You have a matter of minutes to close SCP-096's door before it begins to move around the facility and puts the rest of us in danger.
 
